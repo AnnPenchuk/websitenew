@@ -21,9 +21,14 @@ def about(request):
     return render(request, 'about.html')
 
 
+def admin(request):
+    return render(request, 'admin.html')
+
+
 def Home(request):
-    news = Main.objects.order_by('-id')
-    return render(request, 'home.html', {'title': 'Главная страница сайта', 'news': news})
+    #news = Main.objects.order_by('-id')
+    news = Main.objects.all()
+    return render(request, 'home.html', {'title': 'Кабинет заказчика', 'news': news})
 
 
 def create (request):

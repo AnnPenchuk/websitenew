@@ -4,7 +4,7 @@ from .models import Main
 
 
 class MainAdmin(admin.ModelAdmin):
-    list_display = ("name", "description",)
+    list_display = ("name","experience","phone","address")
 
 
 admin.site.register(Main, MainAdmin)

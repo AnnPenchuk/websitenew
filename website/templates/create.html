@@ -1,18 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Создать новость
+Создать анкету
 {% endblock %}
-
+<body>
+  <div class="page-wrapper">
+<main>
 {% block content %}
- <h1> Создать новость</h1>
+ <h1> Создать анкету</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.name }}<br>
-        {{ form.description }}<br>
-         <button type="submit" class="btn btn-success">Добавить</button>
+        <div>
+       <div> {{ form.name }}</div>
+        </div>
+        <div>
+        <li>{{ form.experience }}</li>
+        <li>{{ form.phone }}</li>
+        <li>{{ form.address }}</li>
+         </div>
+         <br><button type="submit" class="btn btn-success">Добавить</button>
 
-    <span>{{ error }}<span>
-    <form>
+        <span>{{ error }}</span>
+    </form>
+</main>
+</div>
+  </body>
 
-{% endblock %}
+ {% endblock %}

@@ -1,43 +1,55 @@
-<h3>Пoиск</h3>
-<form action="{% url 'search' %}" method="get">
-
-  <input name="q" type="text" placeholder="Поиск...">
-
-</form>
-
-
 <!doctype html>
 <html lang="ru">
 <head>
-    </div>
-
+    <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
 </head>
-<body>
-<header>
-    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
 
-      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <li> <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">Главная   </a>
-        <li> <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'about' %}">   Другая страница</a>
-        <li> <a class="me-4 py-3 text-dark text-decoration-none" href="{% url 'create' %}">   Создать новость</a>
-      </nav>
-    <div>
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <body>
+  <div class="page-wrapper">
+
+
+  <header>
+    <nav>
+      <ul class="nav-menu">
+           <li> <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">Кабинет заказчика   </a></li>
+        <li> <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'about' %}">   Кабинет исполнителя </a></li>
+          <li> <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'admin' %}">   Кабинет администратора </a></li>
+        <li> <a class="me-4 py-3 text-dark text-decoration-none" href="{% url 'create' %}">   Создать анкету </a></li>
+      </ul>
+    </nav>
+    <div class="form-wrapper">
+      <b>Пoиск анкеты</b>
+        <form action="{% url 'search' %}" method="get">
+            <input name="q" type="text" placeholder="Поиск...">
+        </form>
+      </div>
+  </header>
+<main>
+    <ul class="contractor-list">
+      <li>
+          <div class="img-container">
+          {% load static %}
+          <img src="{% static 'top.png' %}" alt="image">
+          </div>
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
      {% block content %}{% endblock %}
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-            <ul class="list-unstyled">
-          </ul>
-        </div>
-      </div>
-  </div>
+      </li>
+    </ul>
+</main>
+</div>
+  </body>
+</html>
 
-    </div>
-  </div>
-</header>
+
+
+
+
+
+

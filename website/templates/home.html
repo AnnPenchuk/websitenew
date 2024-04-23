@@ -7,14 +7,18 @@
 {% endblock %}
 
 {% block content %}
-<h1>Главная страница</h1>
+<h1>Кабинет заказчика</h1>
+<h4 class="text-white">Наши исполнители:</h4>
 
  {% if news %}
        {% for el in news %}
           <div class="alert alert-warning mt-2">
                <h3>{{ el.name }}</h3>
-               <p>{{ el.description }}</p>
+               <p>{{ el.phone }}</p>
+               <p>{{ el.address }}</p>
+
         </div>
+
       {% endfor %}
     {% else %}
         <p>У нас нет записей!</p>

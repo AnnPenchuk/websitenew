@@ -1,20 +1,33 @@
-<h3>Результаты</h3>
-
- 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
+</head>
+<body>
+<main>
+<h1>Результаты поиска</h1>
 
 <ul>
-
   {% for main in object_list %}
 
-    <li>
-
-      {{ main.name }}, {{ main.description }}
-
-    </li>
+    <li>{{ main.name }}, {{ main.experience}}, {{ main.phone }}, {{ main.address }}</li>
 
   {% endfor %}
 
-</ul>
-  <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">   На главную</a>
-
+   </ul>
+ <div class="img-container">
+          {% load static %}
+          <img src="{% static 'fon.jpg' %}" alt="image">
+          </div>
+  <div><a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">   На страницу заказчика</a></div>
+  <div><a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'about' %}">   На страницу исполнителя</a></div>
+    </ul>
+</main>
+  </body>
+</html>
 
